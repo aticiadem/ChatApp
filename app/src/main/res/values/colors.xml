@@ -13,4 +13,9 @@
     <color name="dark_blue">#002f6c</color>
     <color name="blue">#01579b</color>
     <color name="light_blue">#4f83cc</color>
+
+
+    <color name="text_login_already">@color/dark_blue</color>
+    <color name="login_hint_text">@color/red</color>
+
 </resources>

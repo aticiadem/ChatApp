@@ -12,11 +12,28 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashF_to_registerF"
-            app:destination="@id/registerF" />
+            app:destination="@id/registerF"
+            app:popUpTo="@id/splashF"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerF"
         android:name="com.aa.chatapp.view.fragment.RegisterF"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerF_to_loginF"
+            app:destination="@id/loginF" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginF"
+        android:name="com.aa.chatapp.view.fragment.LoginF"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginF_to_registerF"
+            app:destination="@id/registerF"
+            app:popUpTo="@id/registerF"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
