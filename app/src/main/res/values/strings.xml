@@ -4,10 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="kullanici_adi">Kullanıcı Adı</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="register">REGISTER</string>
-    <string name="already_have_an_account">Already have an account?</string>
-    <string name="log_in">LOG IN</string>
-    <string name="back_to_register_screen">Back To Register Screen</string>
+    <string name="password">Şifre</string>
+    <string name="register">KAYDOL</string>
+    <string name="already_have_an_account">Zaten bir hesabın var mı?</string>
+    <string name="log_in">Giriş Yap</string>
+    <string name="back_to_register_screen">Kaydolma Ekranına Dön</string>
     <string name="choose_your_profile_picture">Choose Your Profile Picture</string>
 </resources>

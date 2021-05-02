@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_registerF_to_loginF"
             app:destination="@id/loginF" />
+        <action
+            android:id="@+id/action_registerF_to_homeF"
+            app:destination="@id/homeF" />
     </fragment>
     <fragment
         android:id="@+id/loginF"
@@ -35,5 +38,15 @@
             app:destination="@id/registerF"
             app:popUpTo="@id/registerF"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginF_to_homeF"
+            app:destination="@id/homeF"
+            app:popUpTo="@id/homeF"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/homeF"
+        android:name="com.aa.chatapp.view.fragment.HomeF"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

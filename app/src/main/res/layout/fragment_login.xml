@@ -45,6 +45,7 @@
         android:layout_marginEnd="60dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_background"
+        android:foreground="?selectableItemBackground"
         android:text="@string/log_in"
         android:textSize="18sp" />
 
