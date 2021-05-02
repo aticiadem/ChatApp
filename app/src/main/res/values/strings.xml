@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ChatApp</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kullanici_adi">Kullanıcı Adı</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">REGISTER</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>

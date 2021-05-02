@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/splashF">
+
+    <fragment
+        android:id="@+id/splashF"
+        android:name="com.aa.chatapp.view.fragment.SplashF"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashF_to_registerF"
+            app:destination="@id/registerF" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerF"
+        android:name="com.aa.chatapp.view.fragment.RegisterF"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+</navigation>
