@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.aa.chatapp.R
 import com.aa.chatapp.databinding.FragmentSplashBinding
@@ -23,6 +24,8 @@ class SplashF : Fragment() {
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater,container,false)
         val view = binding.root
+
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         binding.lottie.setAnimation("animation.json")
         binding.lottie.playAnimation()

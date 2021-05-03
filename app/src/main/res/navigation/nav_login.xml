@@ -50,5 +50,11 @@
         android:id="@+id/homeF"
         android:name="com.aa.chatapp.view.fragment.HomeF"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeF_to_registerF"
+            app:destination="@id/registerF"
+            app:popUpTo="@id/homeF"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
