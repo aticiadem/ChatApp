@@ -56,5 +56,13 @@
             app:destination="@id/registerF"
             app:popUpTo="@id/homeF"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeF_to_newMessageF"
+            app:destination="@id/newMessageF" />
     </fragment>
+    <fragment
+        android:id="@+id/newMessageF"
+        android:name="com.aa.chatapp.view.fragment.NewMessageF"
+        android:label="fragment_new_message"
+        tools:layout="@layout/fragment_new_message" />
 </navigation>

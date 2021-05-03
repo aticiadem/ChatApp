@@ -52,6 +52,7 @@ class HomeF : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_new_message -> {
+                findNavController().navigate(R.id.action_homeF_to_newMessageF)
                 return true
             }
             R.id.action_sign_out -> {
