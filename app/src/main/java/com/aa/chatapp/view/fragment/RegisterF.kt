@@ -20,10 +20,15 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.aa.chatapp.R
 import com.aa.chatapp.databinding.FragmentRegisterBinding
+import com.aa.chatapp.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.util.*
 
 class RegisterF : Fragment() {
 
@@ -31,7 +36,9 @@ class RegisterF : Fragment() {
     private val binding get() = _binding!!
     private var selectedPicture: Uri? = null
     private var selectedBitMap: Bitmap? = null
+    private val db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
+    private val storage = Firebase.storage
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,6 +96,8 @@ class RegisterF : Fragment() {
                                             }
                                         }
 
+                                uploadImageToFirebaseStorage()
+
                                 findNavController().navigate(R.id.action_registerF_to_homeF)
                             }
                         }
@@ -99,6 +108,41 @@ class RegisterF : Fragment() {
                 Toast.makeText(requireContext(),"Lütfen Bütün Alanları Doldurun!",Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun uploadImageToFirebaseStorage(){
+        //val currentUser = user
+        if(selectedPicture != null){
+            val reference = storage.reference
+            val uuid = UUID.randomUUID()
+            val imageName = "$uuid"
+            val imageReference = reference.child("images").child(imageName)
+            imageReference.putFile(selectedPicture!!).addOnSuccessListener { task ->
+                val uploadedPictureReference = reference.child("images").child(imageName)
+                uploadedPictureReference.downloadUrl.addOnSuccessListener { uri ->
+                    val downloadUrl = uri.toString()
+                    saveUserToFirebaseDatabase(downloadUrl)
+                }
+            }
+        }
+    }
+
+    private fun saveUserToFirebaseDatabase(downloadUrl: String){
+        val uid = auth.uid
+        val username = auth.currentUser?.displayName
+        val user = hashMapOf(
+                "uid" to uid,
+                "username" to username,
+                "profileImageUrl" to downloadUrl
+        )
+        db.collection("Users")
+                .add(user).addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        println("Her sey tamam")
+                    }
+                }.addOnFailureListener { exception ->
+                    println(exception.localizedMessage)
+                }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
