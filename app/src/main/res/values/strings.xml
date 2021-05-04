@@ -12,4 +12,7 @@
     <string name="choose_your_profile_picture">Choose Your Profile Picture</string>
     <string name="new_message">New Message</string>
     <string name="sign_out">Sign Out</string>
+    <string name="gonder">Gönder</string>
+    <string name="mesajinizi_girin">Mesajınızı Girin</string>
+    <string name="friend_picture">Friend Picture</string>
 </resources>

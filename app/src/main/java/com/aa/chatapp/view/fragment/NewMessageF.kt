@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aa.chatapp.R
 import com.aa.chatapp.adapter.MessageAdapter
@@ -28,17 +29,18 @@ class NewMessageF : Fragment() {
                               savedInstanceState: Bundle?): View {
         _binding = FragmentNewMessageBinding.inflate(inflater,container,false)
         val view = binding.root
-        (activity as AppCompatActivity?)!!.title = "New Message"
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity?)!!.title = "New Message"
+
         fetchUsers()
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = MessageAdapter(usersList)
+        adapter = MessageAdapter(usersList,requireContext())
         binding.recyclerView.adapter = adapter
     }
 

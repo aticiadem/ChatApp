@@ -25,6 +25,7 @@ class HomeF : Fragment() {
         val view = binding.root
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+        (activity as AppCompatActivity?)!!.title = "Chat App"
 
         return view
     }
